@@ -82,6 +82,10 @@ BigQuery's free tier gives **1 TB of query processing per month, per billing acc
 2. Choose this repo (`decay-before-archival`) and the `main` branch (or open a PR branch if we adopt one later).
 3. **One person owns the push at the end of each session** — coordinate in the group chat so we don't end up with duplicate/conflicting commits from multiple people saving at once.
 
+## Project documents
+
+- [Data Collection Plan](https://pennstateoffice365-my.sharepoint.com/:x:/r/personal/mvd5044_psu_edu/Documents/Data%20Mining%202026%20Group%207/Data%20Collection%20Plan%20Template.xlsx?d=w163654a2b80f44fdba1f7f15b5354a86&csf=1&web=1&e=upZSxO) — shared SharePoint spreadsheet defining each metric we're collecting, its stratification factors, operational definition, frequency/time frame, source & location, collection method, and who collects it, plus how the data will be used and displayed.
+
 ## Repo contents
 
 - `OS_Project_Health_Signals.ipynb` — main analysis notebook (Colab-linked).
