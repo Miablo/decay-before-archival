@@ -1,0 +1,25 @@
+[project]
+name = "decay-before-archival"
+version = "0.1.0"
+requires-python = ">=3.14"
+dependencies = [
+    "db-dtypes>=1.7.1",
+    "google-cloud-bigquery>=3.45.2",
+    "google-cloud-bigquery-storage>=2.41.0",
+    "ipykernel>=7.3.0",
+    "jupyterlab>=4.6.4",
+    "pandas>=3.0.6",
+    "python-dotenv>=1.2.3",
+]
+
+[dependency-groups]
+dev = [
+    "nbdime>=4.0.4",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/decay_before_archival"]
