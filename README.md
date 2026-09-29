@@ -20,11 +20,12 @@ All notebooks live under `notebooks/`:
 | `notebooks/deps_dev.ipynb` | deps.dev |
 | `notebooks/scorecard.ipynb` | OpenSSF Scorecard |
 | `notebooks/gh_archive.ipynb` | GH Archive |
+| `notebooks/github_api.ipynb` | GitHub REST API (repo search, contributors, issues) |
 | `notebooks/pypi.ipynb` | PyPI download stats |
-| `notebooks/other_sources.ipynb` | OSV.dev, GitHub REST/GraphQL API, npm downloads API, CHAOSS Metrics (all still TODO — pick one if you want to start on it) |
+| `notebooks/other_sources.ipynb` | OSV.dev, npm downloads API, CHAOSS Metrics (all still TODO — pick one if you want to start on it) |
 | `notebooks/integrate_datasets.ipynb` | Combines the per-source data into one dataset once each notebook has settled on a join key — currently a placeholder, see [Merging](./SETUP.md#merging-integrate_datasetsipynb) in `SETUP.md` |
 
-All six import a shared helper (`from decay_before_archival import get_client; client = get_client()`) so the GCP auth/`.env` logic lives in one place instead of being copy-pasted into every notebook. That helper lives at `src/decay_before_archival/bq_client.py` and is installed as an editable local package by `uv sync`, so it's importable from any notebook regardless of where it sits in `notebooks/`.
+All BigQuery-backed notebooks import a shared helper (`from decay_before_archival import get_client; client = get_client()`) so the GCP auth/`.env` logic lives in one place instead of being copy-pasted into every notebook. That helper lives at `src/decay_before_archival/bq_client.py` and is installed as an editable local package by `uv sync`, so it's importable from any notebook regardless of where it sits in `notebooks/`. (`github_api.ipynb` talks to GitHub's REST API instead of BigQuery, so it skips that helper — but it reads `GITHUB_TOKEN` from the same `.env`.)
 
 If you pick a source out of `notebooks/other_sources.ipynb` to actually explore, **create your own notebook for it** (same pattern as the others, in `notebooks/`) instead of building it out inside `other_sources.ipynb` — that file is just a holding area for unclaimed sources.
 
@@ -44,6 +45,7 @@ decay-before-archival/
 │   ├── deps_dev.ipynb
 │   ├── scorecard.ipynb
 │   ├── gh_archive.ipynb
+│   ├── github_api.ipynb
 │   ├── pypi.ipynb
 │   ├── other_sources.ipynb
 │   └── integrate_datasets.ipynb      # merge step (see SETUP.md)

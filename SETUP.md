@@ -56,6 +56,8 @@ We run these notebooks locally with [`uv`](https://docs.astral.sh/uv/) + Jupyter
    GOOGLE_CLOUD_PROJECT=my-project-123456
    ```
 
+   If you're working in `github_api.ipynb`, also set `GITHUB_TOKEN` there (see the comment in `.env.example`) — optional, but it raises GitHub's rate limits a lot.
+
    `.env` is git-ignored — it's yours only, never commit it or push it anywhere. `.env.example` is the only one that belongs in the repo.
 5. **Authenticate with GCP** once per machine:
 
