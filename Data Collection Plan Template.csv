@@ -1,0 +1,34 @@
+﻿DATA COLLECTION PLAN,,,,,,,,
+Decay Before Archival,,,,,,,,
+Updated 9/27/2026,,,,,,,,
+,,,,,,,,
+METRIC,STRATIFICATION FACTORS,OPERATIONAL DEFINITION,FREQUENCY/ TIME FRAME,SOURCE & LOCATION,COLLECTION METHOD,WHO WILL COLLECT DATA,,Sources
+Commit Frequency, ,Number of human commits during the the preceding X days/months/years,,,,,,deps.dev
+Time Since last Commit, ,Number of days b/w data collection date and the most recent human commit,,,,,,github archive
+Time Since last release, ,Number of days b/w data collection date and most recent published release,,,,,,pypi package registries
+Bus Factor, ,The minimum number of human contributors whose combined commits account for at least 50% of the project’s human commits during the specified observation period,,,,,,npm package registries
+Resolved Issues , ,Issues closed during the observation peroid,,,,,,go package registries
+Merged PR counts, ,Pull requests merged during the observation period,,,,,,github api
+Opened Issues, ,Number of issues opened during the observation period,,,,,,openssf scorecard
+Opened PRs, ,Number of pull requests opened during the observation period,,,,,,
+Downloads,are there different types of downloads we need to distinguish between?,Number of downloads  during the observation period,,,,,,
+Forks, ,Number of new repository forks created during the specified observation period,,,,,,
+Stars, ,Number of new GitHub stars received by the repository during the specified observation period,,,,,,
+Criticality Scores, ,The OpenSSF Criticality Score assigned to the project on the data-collection date,,,,,,
+OpenSSF Scorecard Overall Score, ,"Latest OpenSSF Scorecard overall score available on or before the data-collection date, recorded from 0 to 10",,,,,,
+Maintained Score, ,"Latest OpenSSF Maintained check score available on or before the data-collection date, recorded from 0 to 10",,,,,,
+Code-Review Score, ,"Latest OpenSSF Code-Review check score available on or before the data-collection date, recorded from 0 to 10",,,,,,
+CI-Tests Score, ,"Latest OpenSSF CI-Tests check score available on or before the data-collection date, recorded from 0 to 10",,,,,,
+Number of projects dependent on this project, ,The number of other projects or packages that depend on an open-source project,,,,,,
+,,,,,,,,
+How will the data be used?,,,,How will the data be displayed?,,,,
+"Examples:
+- Idenfitication of largest contributors
+- Checking normality
+- Identifying sigma level and variation
+- Root cause analysis
+- Coorelation analysis",,,,"Examples:
+- Pareto chart
+- Histogram
+- Control chart
+- Scatter diagrams",,,,
