@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="320" viewBox="0 0 640 320" font-family="monospace" font-size="11">
+<text x="55" y="16" font-size="13">resolved_issues  (n=5,169)</text>
+<line x1="55" y1="275" x2="628" y2="275" stroke="#888"/>
+<line x1="55" y1="275" x2="55" y2="275" stroke="#888"/>
+<rect x="55.0" y="28.0" width="13.8" height="247.0" fill="#4c8bf5"/>
+<rect x="69.3" y="275.0" width="13.8" height="0.0" fill="#4c8bf5"/>
+<rect x="83.7" y="222.9" width="13.8" height="52.1" fill="#4c8bf5"/>
+<rect x="98.0" y="275.0" width="13.8" height="0.0" fill="#4c8bf5"/>
+<rect x="112.3" y="250.2" width="13.8" height="24.8" fill="#4c8bf5"/>
+<rect x="126.6" y="257.2" width="13.8" height="17.8" fill="#4c8bf5"/>
+<rect x="140.9" y="262.6" width="13.8" height="12.4" fill="#4c8bf5"/>
+<rect x="155.3" y="264.3" width="13.8" height="10.7" fill="#4c8bf5"/>
+<rect x="169.6" y="259.1" width="13.8" height="15.9" fill="#4c8bf5"/>
+<rect x="183.9" y="261.3" width="13.8" height="13.7" fill="#4c8bf5"/>
+<rect x="198.2" y="259.1" width="13.8" height="15.9" fill="#4c8bf5"/>
+<rect x="212.6" y="260.2" width="13.8" height="14.8" fill="#4c8bf5"/>
+<rect x="226.9" y="262.5" width="13.8" height="12.5" fill="#4c8bf5"/>
+<rect x="241.2" y="260.1" width="13.8" height="14.9" fill="#4c8bf5"/>
+<rect x="255.5" y="258.8" width="13.8" height="16.2" fill="#4c8bf5"/>
+<rect x="269.9" y="263.1" width="13.8" height="11.9" fill="#4c8bf5"/>
+<rect x="284.2" y="263.0" width="13.8" height="12.0" fill="#4c8bf5"/>
+<rect x="298.5" y="265.4" width="13.8" height="9.6" fill="#4c8bf5"/>
+<rect x="312.8" y="264.4" width="13.8" height="10.6" fill="#4c8bf5"/>
+<rect x="327.2" y="267.4" width="13.8" height="7.6" fill="#4c8bf5"/>
+<rect x="341.5" y="268.8" width="13.8" height="6.2" fill="#4c8bf5"/>
+<rect x="355.8" y="267.8" width="13.8" height="7.2" fill="#4c8bf5"/>
+<rect x="370.1" y="271.1" width="13.8" height="3.9" fill="#4c8bf5"/>
+<rect x="384.5" y="271.1" width="13.8" height="3.9" fill="#4c8bf5"/>
+<rect x="398.8" y="271.7" width="13.8" height="3.3" fill="#4c8bf5"/>
+<rect x="413.1" y="273.4" width="13.8" height="1.6" fill="#4c8bf5"/>
+<rect x="427.4" y="272.9" width="13.8" height="2.1" fill="#4c8bf5"/>
+<rect x="441.8" y="273.5" width="13.8" height="1.5" fill="#4c8bf5"/>
+<rect x="456.1" y="274.3" width="13.8" height="0.7" fill="#4c8bf5"/>
+<rect x="470.4" y="274.0" width="13.8" height="1.0" fill="#4c8bf5"/>
+<rect x="484.8" y="274.8" width="13.8" height="0.2" fill="#4c8bf5"/>
+<rect x="499.1" y="274.7" width="13.8" height="0.3" fill="#4c8bf5"/>
+<rect x="513.4" y="274.8" width="13.8" height="0.2" fill="#4c8bf5"/>
+<rect x="527.7" y="275.0" width="13.8" height="0.0" fill="#4c8bf5"/>
+<rect x="542.0" y="274.9" width="13.8" height="0.1" fill="#4c8bf5"/>
+<rect x="556.4" y="275.0" width="13.8" height="0.0" fill="#4c8bf5"/>
+<rect x="570.7" y="274.7" width="13.8" height="0.3" fill="#4c8bf5"/>
+<rect x="585.0" y="275.0" width="13.8" height="0.0" fill="#4c8bf5"/>
+<rect x="599.4" y="275.0" width="13.8" height="0.0" fill="#4c8bf5"/>
+<rect x="613.7" y="274.9" width="13.8" height="0.1" fill="#4c8bf5"/>
+<text x="47.0" y="289">1e0</text>
+<text x="190.2" y="289">1e2</text>
+<text x="333.5" y="289">1e5</text>
+<text x="476.8" y="289">1e7</text>
+<text x="620.0" y="289">1e10</text>
+<text x="55" y="314">log1p scale</text>
+</svg>
