@@ -3,3 +3,5 @@
 .idea/
 __pycache__/
 *.pyc
+NOTES.local.md
+.ipynb_checkpoints/
