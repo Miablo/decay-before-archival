@@ -2,10 +2,10 @@
 <text x="150" y="16" font-size="13">median opened issues (window) by decay stage</text>
 <rect x="150" y="43.3" width="420.0" height="56.8" fill="#4c8bf5"/>
 <text x="144" y="75.7" text-anchor="end">active</text>
-<text x="575.0" y="75.7">10</text>
-<rect x="150" y="130.6" width="42.0" height="56.8" fill="#4c8bf5"/>
+<text x="575.0" y="75.7">7</text>
+<rect x="150" y="130.6" width="0.0" height="56.8" fill="#4c8bf5"/>
 <text x="144" y="163.0" text-anchor="end">stale</text>
-<text x="197.0" y="163.0">1</text>
+<text x="155.0" y="163.0">0</text>
 <rect x="150" y="217.9" width="0.0" height="56.8" fill="#4c8bf5"/>
 <text x="144" y="250.3" text-anchor="end">dormant</text>
 <text x="155.0" y="250.3">0</text>
