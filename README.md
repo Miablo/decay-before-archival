@@ -20,11 +20,13 @@ All notebooks live under `notebooks/`:
 | `notebooks/deps_dev.ipynb` | deps.dev |
 | `notebooks/scorecard.ipynb` | OpenSSF Scorecard |
 | `notebooks/gh_archive.ipynb` | GH Archive |
-| `notebooks/pypi.ipynb` | PyPI download stats |
-| `notebooks/other_sources.ipynb` | OSV.dev, GitHub REST/GraphQL API, npm downloads API, CHAOSS Metrics (all still TODO — pick one if you want to start on it) |
+| `notebooks/github_api.ipynb` | GitHub REST API (repo search, contributors, issues) |
+| `notebooks/package_registries.ipynb` | Package registry coverage decision (npm/PyPI/etc.) |
+| `notebooks/github_metrics_analysis.ipynb` | EDA on the GitHub metrics snapshot (decay stages, archetypes, healthy-vs-archived) — reads `data/github_metrics_snapshot.csv`, never the live collection |
+| `notebooks/other_sources.ipynb` | OSV.dev, npm downloads API, CHAOSS Metrics (all still TODO — pick one if you want to start on it) |
 | `notebooks/integrate_datasets.ipynb` | Combines the per-source data into one dataset once each notebook has settled on a join key — currently a placeholder, see [Merging](./SETUP.md#merging-integrate_datasetsipynb) in `SETUP.md` |
 
-All six import a shared helper (`from decay_before_archival import get_client; client = get_client()`) so the GCP auth/`.env` logic lives in one place instead of being copy-pasted into every notebook. That helper lives at `src/decay_before_archival/bq_client.py` and is installed as an editable local package by `uv sync`, so it's importable from any notebook regardless of where it sits in `notebooks/`.
+All BigQuery-backed notebooks import a shared helper (`from decay_before_archival import get_client; client = get_client()`) so the GCP auth/`.env` logic lives in one place instead of being copy-pasted into every notebook. That helper lives at `src/decay_before_archival/bq_client.py` and is installed as an editable local package by `uv sync`, so it's importable from any notebook regardless of where it sits in `notebooks/`. (`github_api.ipynb` talks to GitHub's REST API instead of BigQuery, so it skips that helper — but it reads `GITHUB_TOKEN` from the same `.env`.)
 
 If you pick a source out of `notebooks/other_sources.ipynb` to actually explore, **create your own notebook for it** (same pattern as the others, in `notebooks/`) instead of building it out inside `other_sources.ipynb` — that file is just a holding area for unclaimed sources.
 
@@ -44,7 +46,9 @@ decay-before-archival/
 │   ├── deps_dev.ipynb
 │   ├── scorecard.ipynb
 │   ├── gh_archive.ipynb
-│   ├── pypi.ipynb
+│   ├── github_api.ipynb
+│   ├── package_registries.ipynb
+│   ├── github_metrics_analysis.ipynb # EDA on the GitHub metrics snapshot
 │   ├── other_sources.ipynb
 │   └── integrate_datasets.ipynb      # merge step (see SETUP.md)
 ├── src/decay_before_archival/        # shared code, installed as an editable local package
@@ -58,3 +62,14 @@ decay-before-archival/
 ```
 
 Anything under `src/decay_before_archival/` is meant to be shared code imported by notebooks, not exploration itself — if you're writing SQL and looking at a dataframe, that belongs in a notebook; if you're writing a reusable helper function, it belongs in `src/`.
+
+## Data files (`data/`)
+
+Result CSVs from each source's notebook are committed here so everyone works from the same data (see main's convention — no blanket `data/` ignore rule). The GitHub API files:
+
+| File | What it is |
+|---|---|
+| `github_metrics.csv` | **Live collection checkpoint** from `github_api.ipynb` — one row per collected repo. Grows while a run is active; re-running the notebook resumes from it (already-collected repos are skipped). |
+| `pool.csv` | **Resume-cache of the candidate pool** (21,860 open-source repos created 2024–2025 with an identifiable license). The bucketed GitHub search that builds it takes ~25 min and burns search quota; if this file exists, `github_api.ipynb` loads it and skips the search entirely. **Other developers: just run the notebook — it will use this committed pool and resume collection from `github_metrics.csv`.** Only delete it (or set `REFRESH_POOL = True`) to re-derive the pool from scratch. |
+| `github_metrics_snapshot.csv` / `_enriched.csv` | Frozen copies for analysis (`github_metrics_analysis.ipynb` reads only these, never the live file). Refreshed periodically as collection progresses. |
+

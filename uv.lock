@@ -512,6 +512,7 @@ dependencies = [
     { name = "matplotlib" },
     { name = "pandas" },
     { name = "python-dotenv" },
+    { name = "requests" },
     { name = "scikit-learn" },
 ]
 
@@ -530,6 +531,7 @@ requires-dist = [
     { name = "matplotlib", specifier = ">=3.10" },
     { name = "pandas", specifier = ">=3.0.6" },
     { name = "python-dotenv", specifier = ">=1.2.3" },
+    { name = "requests", specifier = ">=2.32.5" },
     { name = "scikit-learn", specifier = ">=1.9.1" },
 ]
 
