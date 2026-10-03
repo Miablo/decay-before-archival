@@ -21,7 +21,8 @@ All notebooks live under `notebooks/`:
 | `notebooks/scorecard.ipynb` | OpenSSF Scorecard |
 | `notebooks/gh_archive.ipynb` | GH Archive |
 | `notebooks/github_api.ipynb` | GitHub REST API (repo search, contributors, issues) |
-| `notebooks/pypi.ipynb` | PyPI download stats |
+| `notebooks/package_registries.ipynb` | Package registry coverage decision (npm/PyPI/etc.) |
+| `notebooks/github_metrics_analysis.ipynb` | EDA on the GitHub metrics snapshot (decay stages, archetypes, healthy-vs-archived) — reads `data/github_metrics_snapshot.csv`, never the live collection |
 | `notebooks/other_sources.ipynb` | OSV.dev, npm downloads API, CHAOSS Metrics (all still TODO — pick one if you want to start on it) |
 | `notebooks/integrate_datasets.ipynb` | Combines the per-source data into one dataset once each notebook has settled on a join key — currently a placeholder, see [Merging](./SETUP.md#merging-integrate_datasetsipynb) in `SETUP.md` |
 
@@ -46,7 +47,8 @@ decay-before-archival/
 │   ├── scorecard.ipynb
 │   ├── gh_archive.ipynb
 │   ├── github_api.ipynb
-│   ├── pypi.ipynb
+│   ├── package_registries.ipynb
+│   ├── github_metrics_analysis.ipynb # EDA on the GitHub metrics snapshot
 │   ├── other_sources.ipynb
 │   └── integrate_datasets.ipynb      # merge step (see SETUP.md)
 ├── src/decay_before_archival/        # shared code, installed as an editable local package
@@ -60,3 +62,14 @@ decay-before-archival/
 ```
 
 Anything under `src/decay_before_archival/` is meant to be shared code imported by notebooks, not exploration itself — if you're writing SQL and looking at a dataframe, that belongs in a notebook; if you're writing a reusable helper function, it belongs in `src/`.
+
+## Data files (`data/`)
+
+Result CSVs from each source's notebook are committed here so everyone works from the same data (see main's convention — no blanket `data/` ignore rule). The GitHub API files:
+
+| File | What it is |
+|---|---|
+| `github_metrics.csv` | **Live collection checkpoint** from `github_api.ipynb` — one row per collected repo. Grows while a run is active; re-running the notebook resumes from it (already-collected repos are skipped). |
+| `pool.csv` | **Resume-cache of the candidate pool** (21,860 open-source repos created 2024–2025 with an identifiable license). The bucketed GitHub search that builds it takes ~25 min and burns search quota; if this file exists, `github_api.ipynb` loads it and skips the search entirely. **Other developers: just run the notebook — it will use this committed pool and resume collection from `github_metrics.csv`.** Only delete it (or set `REFRESH_POOL = True`) to re-derive the pool from scratch. |
+| `github_metrics_snapshot.csv` / `_enriched.csv` | Frozen copies for analysis (`github_metrics_analysis.ipynb` reads only these, never the live file). Refreshed periodically as collection progresses. |
+
